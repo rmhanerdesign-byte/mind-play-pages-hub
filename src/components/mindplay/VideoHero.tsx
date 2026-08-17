@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/../776BCE76-7F75-4A6E-BE13-365352628965.PNG";
 
 import heroMaster from "@/assets/mindplay-hero-master-v2.png.asset.json";
 import mobileMaster from "@/assets/mindplay-mobile-master.png.asset.json";
