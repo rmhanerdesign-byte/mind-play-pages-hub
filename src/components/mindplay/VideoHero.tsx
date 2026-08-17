@@ -1,5 +1,5 @@
 import { Link } from "@/../776BCE76-7F75-4A6E-BE13-365352628965.PNG";
-
+import mobileMaster from "@/../CFFF275B-B96D-4838-8DBE-989CA5B7082D.PNG";
 
 
 type MasterArea = {
