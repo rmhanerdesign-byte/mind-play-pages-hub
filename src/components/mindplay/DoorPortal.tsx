@@ -3,6 +3,7 @@ import { useNavigate } from "@tanstack/react-router";
 
 import doorVideo from "@/assets/door-master.mp4.asset.json";
 import doorPoster from "@/assets/door-master-poster.jpg.asset.json";
+import placardBlank from "@/assets/mindplay-placard-blank-v2.png";
 import { cn } from "@/lib/utils";
 
 /** Native aspect ratio of the Runway master door asset (496 x 864). */
@@ -31,15 +32,21 @@ export function DoorPortal({ label, to, className }: DoorPortalProps) {
   function open() {
     if (opening) return;
     setOpening(true);
+
     const video = videoRef.current;
+
     if (!video) {
       go();
       return;
     }
+
     try {
       video.currentTime = 0;
       const played = video.play();
-      if (played && typeof played.catch === "function") played.catch(go);
+
+      if (played && typeof played.catch === "function") {
+        played.catch(go);
+      }
     } catch {
       go();
     }
@@ -47,26 +54,33 @@ export function DoorPortal({ label, to, className }: DoorPortalProps) {
 
   return (
     <div className={cn("flex flex-col items-center", className)}>
-      {/* raised white architectural placard */}
-      <span
-        className="rounded-[3px] px-4 py-2 text-[9px] font-semibold tracking-[0.32em] uppercase sm:text-[10px]"
-        style={{
-          color: "oklch(0.18 0.004 260)",
-          backgroundImage:
-            "repeating-linear-gradient(41deg, oklch(0 0 0 / 0.03) 0px, oklch(0 0 0 / 0.03) 1px, transparent 1px, transparent 3px), linear-gradient(180deg, oklch(1 0 0) 0%, oklch(0.94 0.002 260) 100%)",
-          boxShadow:
-            "0 6px 14px -6px oklch(0 0 0 / 0.85), inset 0 1px 0 oklch(1 0 0), inset 0 -2px 3px oklch(0 0 0 / 0.16), 0 0 0 1px oklch(0.85 0.003 260)",
-        }}
-      >
-        {label}
-      </span>
+      {/* approved MindPlay metallic placard */}
+      <div className="relative w-full max-w-[220px]">
+        <img
+          src={placardBlank}
+          alt=""
+          aria-hidden="true"
+          draggable={false}
+          className="block h-auto w-full select-none"
+        />
 
-      {/* door slot — Runway master asset only, native aspect ratio, no transforms */}
+        <span
+          className="pointer-events-none absolute inset-0 flex items-center justify-center px-4 text-center font-display text-[11px] font-bold italic tracking-[0.08em] uppercase text-[#ffd84a] sm:text-xs"
+          style={{
+            textShadow:
+              "0 1px 2px rgba(0,0,0,0.95), 0 0 8px rgba(255,205,55,0.38)",
+          }}
+        >
+          {label}
+        </span>
+      </div>
+
+      {/* Runway door master — animation remains untouched */}
       <button
         type="button"
         onClick={open}
         aria-label={`Enter ${label}`}
-        className="mt-6 mx-auto block w-full max-w-[190px] cursor-pointer outline-none focus-visible:ring-1 focus-visible:ring-primary/60"
+        className="mt-3 mx-auto block w-full max-w-[190px] cursor-pointer outline-none focus-visible:ring-1 focus-visible:ring-primary/60"
       >
         <video
           ref={videoRef}
@@ -77,7 +91,10 @@ export function DoorPortal({ label, to, className }: DoorPortalProps) {
           preload="auto"
           onEnded={go}
           className="block h-auto w-full"
-          style={{ aspectRatio: DOOR_ASPECT, objectFit: "contain" }}
+          style={{
+            aspectRatio: DOOR_ASPECT,
+            objectFit: "contain",
+          }}
         />
       </button>
     </div>
