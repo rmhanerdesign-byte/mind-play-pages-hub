@@ -1,142 +1,76 @@
-import { Link } from "@tanstack/react-router";
+const doors = [
+  {
+    id: "about",
+    label: "ABOUT",
+    to: "/about",
+  },
+  {
+    id: "studios",
+    label: "STUDIOS",
+    to: "/productions",
+  },
+  {
+    id: "projects",
+    label: "PROJECTS",
+    to: "/projects",
+  },
+  {
+    id: "creative",
+    label: "CREATIVE",
+    to: "/creative-assistance",
+  },
+];
 
-import stainlessDoor from "@/assets/stainless-door-closed.png.PNG";
-
-type DoorArea = {
-  id: string;
+function DoorCard({
+  label,
+  to,
+}: {
   label: string;
   to: string;
-  left: number;
-  top: number;
-  width: number;
-  height: number;
-};
-
-const mobileDoorsAreas: DoorArea[] = [
-  {
-    id: "about",
-    label: "About",
-    to: "/about",
-    left: 6,
-    top: 69,
-    width: 20,
-    height: 25,
-  },
-  {
-    id: "studios",
-    label: "Studios",
-    to: "/productions",
-    left: 28,
-    top: 69,
-    width: 20,
-    height: 25,
-  },
-  {
-    id: "projects",
-    label: "Projects",
-    to: "/projects",
-    left: 51,
-    top: 69,
-    width: 20,
-    height: 25,
-  },
-  {
-    id: "creative",
-    label: "Creative",
-    to: "/creative-assistance",
-    left: 74,
-    top: 69,
-    width: 20,
-    height: 25,
-  },
-];
-
-const desktopDoorsAreas: DoorArea[] = [
-  {
-    id: "about",
-    label: "About",
-    to: "/about",
-    left: 13,
-    top: 65,
-    width: 15,
-    height: 33,
-  },
-  {
-    id: "studios",
-    label: "Studios",
-    to: "/productions",
-    left: 32,
-    top: 65,
-    width: 15,
-    height: 33,
-  },
-  {
-    id: "projects",
-    label: "Projects",
-    to: "/projects",
-    left: 51,
-    top: 65,
-    width: 15,
-    height: 33,
-  },
-  {
-    id: "creative",
-    label: "Creative",
-    to: "/creative-assistance",
-    left: 70,
-    top: 65,
-    width: 15,
-    height: 33,
-  },
-];
-
-function DoorLinks({ areas }: { areas: DoorArea[] }) {
+}) {
   return (
-    <>
-      {areas.map((area) => (
-        <Link
-          key={area.id}
-          to={area.to}
-          aria-label={`Enter ${area.label}`}
-          className="absolute z-10 block"
-          style={{
-            left: `${area.left}%`,
-            top: `${area.top}%`,
-            width: `${area.width}%`,
-            height: `${area.height}%`,
-          }}
-        >
-          <div className="absolute -top-9 left-1/2 -translate-x-1/2 whitespace-nowrap rounded border border-zinc-400 bg-zinc-100 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.25em] text-black shadow-md">
-            {area.label}
-          </div>
+    <Link
+      to={to}
+      aria-label={`Enter ${label}`}
+      className="group flex flex-col items-center"
+    >
+      {/* PLACARD */}
+      <div className="mb-3 rounded-md border border-[#d8b25c]/70 bg-black/80 px-5 py-2 shadow-lg">
+        <span className="text-sm font-semibold tracking-[0.22em] text-[#f4c95d] sm:text-base">
+          {label}
+        </span>
+      </div>
 
-          <img
-            src={stainlessDoor}
-            alt=""
-            className="h-full w-full object-contain"
-          />
-        </Link>
-      ))}
-    </>
+      {/* DOOR */}
+      <div className="relative w-full max-w-[220px] transition-transform duration-300 group-hover:scale-[1.025] sm:max-w-[250px] lg:max-w-[270px]">
+        <img
+          src={stainlessDoor}
+          alt={`${label} stainless steel doorway`}
+          className="block h-auto w-full object-contain"
+        />
+      </div>
+    </Link>
   );
 }
 
 export function VideoHero() {
   return (
-    <>
-      {/* MOBILE */}
-      <section className="relative flex min-h-[100svh] w-full items-center justify-center overflow-hidden bg-black md:hidden">
-        <div className="relative h-[100svh] max-h-[100svh] w-full">
-          <DoorLinks areas={mobileDoorsAreas} />
-        </div>
-      </section>
+    <section className="relative w-full bg-black px-4 py-12 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl">
+        <h2 className="mb-10 text-center font-serif text-xl tracking-[0.28em] text-[#e3bc69] sm:text-2xl">
+          PICK A DOOR TO START YOUR JOURNEY
+        </h2>
 
-      {/* TABLET / DESKTOP */}
-      <section className="relative hidden min-h-screen w-full items-center justify-center overflow-hidden bg-black md:flex">
-        <div className="relative h-screen w-full">
-          <DoorLinks areas={desktopDoorsAreas} />
+        <div className="grid grid-cols-2 items-end gap-x-5 gap-y-10 sm:gap-x-8 lg:grid-cols-4 lg:gap-x-6">
+          {doors.map((door) => (
+            <DoorCard
+              key={door.id}
+              label={door.label}
+              to={door.to}
+            />
+          ))}
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }
