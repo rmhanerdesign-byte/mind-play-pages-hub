@@ -118,7 +118,7 @@ export function VideoHero() {
   return (
     <>
       {/* MOBILE */}
-      <section className="relative flex min-h-[100svh] w-full items-center justify-center overflow-hidden bg-black md:hidden">
+      <section className="relative flex min-h-[100svh] w-full items-center justify-center overflow-hidden bg-black md:hidden brightness-[1.12]">
         <div className="relative h-[100svh] max-h-[100svh] w-full">
           <img
             src={mobileDoors}
@@ -131,7 +131,7 @@ export function VideoHero() {
       </section>
 
       {/* TABLET / DESKTOP */}
-      <section className="relative hidden min-h-screen w-full items-center justify-center overflow-hidden bg-black md:flex">
+      <section className="relative hidden min-h-screen w-full items-center justify-center overflow-hidden bg-black md:flex brightness-[1.12]">
         <div className="relative h-screen w-full">
           <img
             src={desktopDoors}
