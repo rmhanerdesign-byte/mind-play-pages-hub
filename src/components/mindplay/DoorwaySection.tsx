@@ -31,7 +31,7 @@ export function DoorwaySection() {
           Pick a door to start your journey
         </h2>
 
-        <div className="m<div className="mt-10 grid grid-cols-2 gap-x-4 gap-y-8 sm:gap-x-14 md:mt-20 md:grid-cols-4 md:gap-x-16">
+        <div className="mt-10 grid grid-cols-4 gap-x-2 gap-y-0 sm:gap-x-4 md:mt-20 md:grid-cols-4 md:gap-x-16">
           {doors.map((d) => (
             <DoorPortal key={d.label} label={d.label} to={d.to} />
           ))}
