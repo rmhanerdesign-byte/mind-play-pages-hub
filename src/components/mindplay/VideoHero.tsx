@@ -1,7 +1,6 @@
 import { Link } from "@tanstack/react-router";
 
-import mobileDoors from "@/assets/mindplay-mobile-doors.png";
-import desktopDoors from "@/assets/hero-door-placard.PNG";
+import stainlessDoor from "@/assets/stainless-door-closed.png.PNG";
 
 type DoorArea = {
   id: string;
@@ -13,7 +12,6 @@ type DoorArea = {
   height: number;
 };
 
-/* Four doors in the PORTRAIT mobile artwork. */
 const mobileDoorsAreas: DoorArea[] = [
   {
     id: "about",
@@ -53,7 +51,6 @@ const mobileDoorsAreas: DoorArea[] = [
   },
 ];
 
-/* Four doors in the LANDSCAPE desktop artwork. */
 const desktopDoorsAreas: DoorArea[] = [
   {
     id: "about",
@@ -101,14 +98,24 @@ function DoorLinks({ areas }: { areas: DoorArea[] }) {
           key={area.id}
           to={area.to}
           aria-label={`Enter ${area.label}`}
-          className="absolute z-10 cursor-pointer bg-transparent"
+          className="absolute z-10 block"
           style={{
             left: `${area.left}%`,
             top: `${area.top}%`,
             width: `${area.width}%`,
             height: `${area.height}%`,
           }}
-        />
+        >
+          <div className="absolute -top-9 left-1/2 -translate-x-1/2 whitespace-nowrap rounded border border-zinc-400 bg-zinc-100 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.25em] text-black shadow-md">
+            {area.label}
+          </div>
+
+          <img
+            src={stainlessDoor}
+            alt=""
+            className="h-full w-full object-contain"
+          />
+        </Link>
       ))}
     </>
   );
@@ -118,27 +125,15 @@ export function VideoHero() {
   return (
     <>
       {/* MOBILE */}
-      <section className="relative flex min-h-[100svh] w-full items-center justify-center overflow-hidden bg-black md:hidden brightness-[1.12]">
+      <section className="relative flex min-h-[100svh] w-full items-center justify-center overflow-hidden bg-black md:hidden">
         <div className="relative h-[100svh] max-h-[100svh] w-full">
-          <img
-            src={mobileDoors}
-            alt="MindPlay Media Studios — About, Studios, Projects, Creative"
-            className="absolute inset-0 h-full w-full object-contain"
-          />
-
           <DoorLinks areas={mobileDoorsAreas} />
         </div>
       </section>
 
       {/* TABLET / DESKTOP */}
-      <section className="relative hidden min-h-screen w-full items-center justify-center overflow-hidden bg-black md:flex brightness-[1.12]">
+      <section className="relative hidden min-h-screen w-full items-center justify-center overflow-hidden bg-black md:flex">
         <div className="relative h-screen w-full">
-          <img
-            src={desktopDoors}
-            alt="MindPlay Media Studios — About, Studios, Projects, Creative"
-            className="absolute inset-0 h-full w-full object-contain"
-          />
-
           <DoorLinks areas={desktopDoorsAreas} />
         </div>
       </section>
