@@ -15,8 +15,8 @@ const doors = [
     to: "/projects",
   },
   {
-    id: "creative",
-    label: "CREATIVE",
+    id: "Create",
+    label: "Let's Create",
     to: "/creative-assistance",
   },
 ];
