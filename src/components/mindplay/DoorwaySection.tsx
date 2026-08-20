@@ -31,7 +31,10 @@ export function DoorwaySection() {
           Pick a door to start your journey
         </h2>
 
-        <div className="mt-10 grid grid-cols-4 gap-x-2 gap-y-0 sm:gap-x-4 md:mt-20 md:grid-cols-4 md:gap-x-16">
+        <div
+  className="mt-10 grid gap-x-2 gap-y-0 sm:gap-x-4 md:mt-20 md:gap-x-16"
+  style={{ gridTemplateColumns: "repeat(4, minmax(0, 1fr))" }}
+>
           {doors.map((d) => (
             <DoorPortal key={d.label} label={d.label} to={d.to} />
           ))}
