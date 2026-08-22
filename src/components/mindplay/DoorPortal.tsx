@@ -1,8 +1,8 @@
 import { useRef, useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
 
-import doorVideo from "@/assets/door-master.mp4.asset.json";
-import doorPoster from "@/assets/door-master-poster.jpg.asset.json";
+import doorVideo from "@/assets/stainless-door-open.mp4.MP4";
+import doorPoster from "@/assets/stainless-door-closed.png.PNG";
 import placardBlank from "@/assets/mindplay-placard-blank-v2.png";
 import { cn } from "@/lib/utils";
 
@@ -84,8 +84,8 @@ export function DoorPortal({ label, to, className }: DoorPortalProps) {
       >
         <video
           ref={videoRef}
-          src={doorVideo.url}
-          poster={doorPoster.url}
+          src={doorVideo}
+          poster={doorPoster}
           muted
           playsInline
           preload="auto"
