@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-
+import stainlessDoor from "@/assets/stainless-door-closed.png.PNG";
 const doors = [
   {
     id: "about",
