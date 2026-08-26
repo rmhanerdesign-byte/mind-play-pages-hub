@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import { VideoHero } from "@/components/mindplay/VideoHero";
-
+import "../styles.css";
 const title = "MindPlay Media Studios — Imagine, Create, Experience";
 const description =
   "MindPlay Media Studios is a creative production house building wellness, sound, film, and interactive experiences. Founded by Bobby Whizkers in Los Angeles.";
