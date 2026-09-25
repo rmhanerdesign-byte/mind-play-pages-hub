@@ -46,10 +46,10 @@ function EmotionDetectivePage() {
 
               <div className="mt-6 grid gap-3">
                 <a
-                  href="https://daily-emotion-spotlight.lovable.app/install"
+                  href="https://daily-emotion-spotlight.lovable.app/install?from=mindplay"
                   className="bg-primary px-5 py-4 text-center font-display text-base tracking-[0.2em] text-primary-foreground transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary"
                 >
-                  INSTALL FROM WEBSITE
+                  INSTALL EMOTION DETECTIVE
                 </a>
                 <a
                   href="https://daily-emotion-spotlight.lovable.app/?start=assignments"
