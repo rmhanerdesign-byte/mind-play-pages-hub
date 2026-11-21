@@ -27,17 +27,17 @@ export const productions: Production[] = [
     tagline: "The flagship platform of the studio",
     detail: [
       "Rediscovery is the long-form home for personal practice: a place you return to rather than a session you finish. Daily reflection, mood, and progress are held in one continuous thread so the platform can respond to you over months, not minutes.",
-      "It is the widest production on the slate — the connective layer other MindPlay work can plug into, from guided audio to interactive story moments.",
+      "It is the widest production on the slate — the connective layer other MindPlay work can plug into, from guided audio to interactive story moments. Its first broad-audience group-game release is Carnaged Chaos, an original social-comedy deck built around doomed schemes and familiar chaos.",
     ],
     focus: [
       "Guided reflection that adapts to the person using it",
       "A continuous record of practice rather than isolated exercises",
-      "The platform layer other productions can extend",
+      "The platform layer other productions can extend",\n      "Carnaged Chaos — original group-game launch deck",
     ],
     facts: [
       { label: "Format", value: "Long-form platform" },
       { label: "Stage", value: "In production" },
-      { label: "Role", value: "Flagship" },
+      { label: "Role", value: "Flagship" },\n      { label: "Group Games", value: "Carnaged Chaos — launch deck" },
     ],
   },
   {
